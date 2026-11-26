@@ -2,7 +2,7 @@ policy,win % vs always-move,win % vs cautious,moves,bumps given,times bumped,sna
 Always move (classic game),47.9,42.2,15.5,0.65,0.69,1.48,0.00,
 Cautious rule (same as the opponent),54.1,47.0,14.8,0.62,0.66,0.00,3.43,
 Single-player optimum (ignores opponent),48.3,42.6,14.7,0.45,0.69,0.01,6.51,
-Random stay/move,12.6,9.5,17.8,0.33,0.41,0.73,8.96,
+Random stay/move,12.5,9.8,17.7,0.33,0.40,0.73,8.91,
 Q-Learning (R-v0 reward),49.4 ± 0.3,41.1 ± 0.7,15.9 ± 0.0,0.73 ± 0.01,0.31 ± 0.00,0.04 ± 0.00,7.18 ± 0.08,5.8 ± 0.1
 SARSA (R-v0 reward),50.3 ± 0.6,41.5 ± 0.5,15.9 ± 0.1,0.73 ± 0.00,0.30 ± 0.01,0.03 ± 0.00,7.06 ± 0.09,5.5 ± 0.1
 DQN (R-v0 reward),50.0 ± 0.7,42.8 ± 0.2,15.9 ± 0.1,0.75 ± 0.01,0.48 ± 0.00,0.01 ± 0.01,7.78 ± 0.23,154.2 ± 82.6

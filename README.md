@@ -70,9 +70,9 @@ for three consecutive evaluations.
 
 | Board | BFS optimum | Random policy wins | All 5 algorithms | Episodes to converge (Q-L / SARSA / DQN / PPO / A2C) |
 |---|---|---|---|---|
-| 30 squares, 3 snakes, 3 ladders | 4 moves | 31 % | 100 % wins, 4 moves | 20 / 113 / 173 / 120 / 54 |
-| 50 squares, 5 / 5 | 5 moves | 50 % | 100 % wins, 5 moves | 33 / 293 / 180 / 1 640 / 1 253 |
-| 100 squares, 8 / 8 | 8 moves | 48 % | 100 % wins, 8 moves | 20 / 87 / 107 / 1 127 / 2 101 |
+| 30 squares, 3 snakes, 3 ladders | 4 moves | 29 % | 100 % wins, 4 moves | 20 / 113 / 173 / 120 / 54 |
+| 50 squares, 5 / 5 | 5 moves | 52 % | 100 % wins, 5 moves | 33 / 293 / 180 / 1 640 / 1 253 |
+| 100 squares, 8 / 8 | 8 moves | 52 % | 100 % wins, 8 moves | 20 / 87 / 107 / 1 127 / 2 101 |
 
 **Extensions**
 
@@ -102,7 +102,7 @@ for three consecutive evaluations.
 ```
 snakes_ladders_rl.ipynb   the whole study: environment, agents, experiments, figures, discussion
 results/                  cached training logs (*.pkl) and summary tables (*.csv)
-models/                   trained stable-baselines3 models (*.zip)
+models/                   trained DQN / PPO / A2C models (*.zip, 3 seeds) for the three benchmark boards and random dice
 figures/                  figures used in this README
 requirements.txt          Python dependencies
 ```
@@ -118,8 +118,9 @@ jupyter lab snakes_ladders_rl.ipynb
 ```
 
 The notebook loads the cached results from `results/` and runs top to bottom in under a minute. To retrain everything
-from scratch, set `RETRAIN = True` in the first code cell. This takes roughly 1.5–2 hours on a laptop CPU; a GPU is not
-needed, since the networks are small MLPs and run fastest on a single CPU thread.
+from scratch, set `RETRAIN = True` in the first code cell. This takes about 2–2.5 hours on a laptop CPU (about 128
+minutes of recorded training time). A GPU is not needed: the networks are small MLPs and run fastest on a single CPU
+thread.
 
 To execute the notebook headlessly:
 
