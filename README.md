@@ -27,6 +27,9 @@ Everything (environment, agents, experiments, figures and discussion) lives in o
   backed by ablations.
 - **Generalisation.** On boards re-generated every game, PPO with local look-ahead features wins 100 % of games in
   1.08× the BFS optimum, while memorised tabular policies collapse to 34–51 % wins.
+- **Strategic decisions.** Q-Learning and DQN learn to *save* a one-time snake shield for the snakes near the goal,
+  within 1.5 points of the exact optimum. In a two-player race, only DQN trained on a win/lose reward beats the classic
+  player.
 - **An honest comparison with classical methods.** It shows when BFS or a simple greedy rule is the better tool, and
   when reinforcement learning earns its place.
 
@@ -78,8 +81,21 @@ for three consecutive evaluations.
 | Random dice (50 squares) | Q-Learning and DQN match the exact optimum (return 126.6). PPO and A2C reach about 102–105. Always moving gets 47. |
 | Larger boards (200 / 400) | Every method finds the optimum. Tabular Q-Learning is the most sample-efficient (14k / 58k steps), ahead of DQN (31k / 92k). |
 | Dynamic board | PPO: 100 % wins at 1.08× BFS. A2C: 1.17×. DQN: 1.20×. Position-only Q-Learning: 51 % wins. A hand-written greedy rule: 1.02×. |
-| Snake shield (100 squares) | Q-Learning learns to save the shield for later snakes, close to the exact optimum. See the notebook for all algorithms. |
-| Two players | Agents trained on the standard reward win ≈ 50 % against a classic player, but a cautious rule wins 54 %. They maximise reward, not winning. A win/lose-only reward fixes the objective (see notebook). |
+| Snake shield (100 squares) | Exact optimum: return 45.9, against 10.0 when never using the shield. Q-Learning reaches 45.1 and DQN (rewards × 0.01) 44.5, both by saving the shield for late snakes. SARSA: 42.7. PPO and A2C (about 30) only learn "use it at once". |
+| Two players (bump rule) | Trained on the standard reward, every learner wins only 48–50 % against a classic player: they dodge snakes and lose tempo. With a win/lose-only reward, **DQN wins 54.0 %**, matching a hand-tuned cautious rule (54.1 %). |
+
+## Figures
+
+| | |
+|---|---|
+| ![Benchmark boards](figures/boards.png) | ![Learned routes on the 100-square board](figures/learned_routes_board100.png) |
+| **Benchmark boards.** Green arrows are ladders, red are snakes. | **Learned routes on the 100-square board.** Every algorithm finds an 8-move route, matching BFS. |
+| ![Greedy policy quality during training](figures/greedy_policy_during_training.png) | ![Total reward during training](figures/training_reward.png) |
+| **Greedy-policy moves during training** (dashed line = optimum). | **Total reward per episode** (mean ± std over 3 seeds). |
+| ![Learning snapshots](figures/learning_snapshots.png) | ![Reward hacking loop](figures/reward_hacking_loop.png) |
+| **Q-Learning's route as training progresses.** | **Reward hacking.** With a +20 ladder bonus, the optimal policy farms a ladder/snake cycle forever. |
+| ![Random-dice stay policy](figures/random_dice_stay_policy.png) | ![Two-player win rate](figures/two_player_win_rate.png) |
+| **Random dice:** when to skip a turn (red), learned vs optimal. | **Two-player race:** win rate under the standard and the win/lose reward. |
 
 ## Repository layout
 
