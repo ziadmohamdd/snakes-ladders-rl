@@ -1,0 +1,9 @@
+gymnasium==1.4.0
+stable-baselines3==2.9.2
+torch>=2.9            # CPU build is enough: the networks are small MLPs
+numpy>=2.0
+pandas>=2.2
+matplotlib>=3.9
+ipykernel>=6.29
+nbformat>=5.10
+nbconvert>=7.16       # only needed to run the notebook from the command line
