@@ -11,6 +11,10 @@ a two-player race and boards that change every game. Every learned policy is mea
 Everything (environment, agents, experiments, figures and discussion) lives in one reproducible notebook:
 [`snakes_ladders_rl.ipynb`](snakes_ladders_rl.ipynb).
 
+**[Explore the interactive codebase map →](https://ziadmohamdd.github.io/snakes-ladders-rl/map/)** · [Architecture map section](#architecture-map)
+
+[![Interactive codebase map of the Snakes & Ladders RL study](docs/images/codebase_map.png)](https://ziadmohamdd.github.io/snakes-ladders-rl/map/)
+
 ---
 
 ## Highlights
@@ -96,6 +100,12 @@ for three consecutive evaluations.
 | **Q-Learning's route as training progresses.** | **Reward hacking.** With a +20 ladder bonus, the optimal policy farms a ladder/snake cycle forever. |
 | ![Random-dice stay policy](figures/random_dice_stay_policy.png) | ![Two-player win rate](figures/two_player_win_rate.png) |
 | **Random dice:** when to skip a turn (red), learned vs optimal. | **Two-player race:** win rate under the standard and the win/lose reward. |
+
+## Architecture map
+
+An interactive map of the code, made with [Floorplan](https://github.com/haydenschmitty/floorplan): every part of the notebook, what it does, and which earlier sections each one builds on. Floorplan reads Python files, so the map splits the notebook's code into one file per section.
+
+**[Open the interactive codebase map →](https://ziadmohamdd.github.io/snakes-ladders-rl/map/)**
 
 ## Repository layout
 
